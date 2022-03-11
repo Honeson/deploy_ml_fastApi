@@ -13,12 +13,11 @@ class Predictrequest(BaseModel):
     data: List[List[float]]
 
     @validator('data')
-    def check_dimentionality(cls, list_of_list):
-        for list_of_data in list_of_list:
+    def check_dimentionality(cls, list_of_lists):
+        for list_of_data in list_of_lists:
             if len(list_of_data) != n_features:
-                raise ValidationError(f'Each list of data points in the list must\
-                contain {n_features} features')
-        return list_of_list
+                raise ValueError(f'Each list of data points in the list must contain {n_features} features. You provided {len(list_of_data)}')
+        return list_of_lists
 
 
 class Predictresponse(BaseModel):

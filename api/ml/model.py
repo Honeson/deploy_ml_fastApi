@@ -45,7 +45,7 @@ X_train = pd.read_csv(file_path/'xtrain.csv')
 X_test = pd.read_csv(file_path/'xtest.csv')
 y_train = pd.read_csv(file_path/'ytrain.csv')
 y_test = pd.read_csv(file_path/'ytest.csv')
-n_features = X_train.shape[1]
+
 model = Model(model_path)
 
 def get_model():
@@ -55,6 +55,8 @@ features = pd.read_csv(file_path/'selected_features.csv')
 features = features['0'].to_list()
 X_train = X_train[features]
 X_test= X_test[features]
+
+n_features = X_train.shape[1]
 
 
 if __name__ == '__main__':
